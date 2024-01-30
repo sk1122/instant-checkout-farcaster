@@ -22,7 +22,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "secret-key": "1a5181c3-2d69-4c1f-9b11-9912f2a9ada9"
+          "secret-key": process.env.FETCCH_API_KEY
         },
         data: {
             // "payer": "0xF93480Eb81e7Ff26A5b79d2D610B8648f645b950",
@@ -51,10 +51,10 @@ export default async function (req: VercelRequest, res: VercelResponse) {
         method: "POST",
         headers: {
           "content-type": "application/json",
-          "api_key": "57705239-E1D4-4F8B-9079-C0324230C8CD"
+          "api_key": process.env.NEYNAR_API_KEY
         },
         data: {
-          "signer_uuid": "119374d2-391c-4662-9736-86db3188dc2a",
+          "signer_uuid": process.env.SIGNER_UUID,
           "text": `Instant checkout by Fetcch for @${username}, link - https://request.fetcch.xyz/request/${(await request.data).data.id}`
         }
       })
@@ -128,7 +128,7 @@ async function getAddrByFid(fid: number) {
     url: `https://api.neynar.com/v2/farcaster/user/bulk?fids=${fid}`,
     headers: {
       accept: "application/json",
-      api_key: "57705239-E1D4-4F8B-9079-C0324230C8CD" || "",
+      api_key: process.env.NEYNAR_API_KEY || "",
     },
   };
   console.log("Fetching user address from Neynar API");
