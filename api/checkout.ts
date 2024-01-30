@@ -136,8 +136,8 @@ async function getAddrByFid(fid: number) {
   console.log("Response: ", resp);
   const responseBody = await resp.json(); // Parse the response body as JSON
   if (responseBody.users) {
-    const userVerifications = responseBody.users[0];
-    return userVerifications.username
+    const users = responseBody.users[0];
+    return users.username
   }
   return "0x0000000000000000000000000000000000000000";
 }
