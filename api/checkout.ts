@@ -14,8 +14,8 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     try {
       console.log("req.body", req.body);
 
-      // const fid = req.body.untrustedData.fid;
-      // const username = await getAddrByFid(fid)
+      const fid = req.body.untrustedData.fid;
+      const username = await getAddrByFid(fid)
 
       const request = await axios({
         url: "https://staging-api.fetcch.xyz/v1/transaction-request",
@@ -55,7 +55,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
         },
         data: {
           "signer_uuid": "119374d2-391c-4662-9736-86db3188dc2a",
-          "text": `Instant checkout by Fetcch for @sk1122, link - https://request.fetcch.xyz/request/${(await request.data).data.id}`
+          "text": `Instant checkout by Fetcch for @${username}, link - https://request.fetcch.xyz/request/${(await request.data).data.id}`
         }
       })
 
