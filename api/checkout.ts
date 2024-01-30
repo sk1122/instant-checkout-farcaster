@@ -51,7 +51,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
         method: "POST",
         headers: {
           "content-type": "application/json",
-          "api_key": ""
+          "api_key": "57705239-E1D4-4F8B-9079-C0324230C8CD"
         },
         data: {
           "signer_uuid": "119374d2-391c-4662-9736-86db3188dc2a",
