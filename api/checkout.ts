@@ -46,18 +46,18 @@ export default async function (req: VercelRequest, res: VercelResponse) {
         }
       })
 
-      // const postCast = await axios({
-      //   url: "https://api.neynar.com/v2/farcaster/cast",
-      //   method: "POST",
-      //   headers: {
-      //     "content-type": "application/json",
-      //     "api_key": ""
-      //   },
-      //   data: {
-      //     "signer_uuid": "",
-      //     "text": `Instant checkout by Fetcch for @sk1122, link - https://request.fetcch.xyz/request/${(await request.data).data.id}`
-      //   }
-      // })
+      const postCast = await axios({
+        url: "https://api.neynar.com/v2/farcaster/cast",
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          "api_key": ""
+        },
+        data: {
+          "signer_uuid": "119374d2-391c-4662-9736-86db3188dc2a",
+          "text": `Instant checkout by Fetcch for @sk1122, link - https://request.fetcch.xyz/request/${(await request.data).data.id}`
+        }
+      })
 
       res.status(200).setHeader("Content-Type", "text/html").send(`
       <!DOCTYPE html>
