@@ -1,0 +1,8 @@
+{
+  "repository": "https://github.com/sk1122/farcaster-frames",
+  "license": "MIT",
+  "dependencies": {
+    "@vercel/node": "^3.0.7",
+    "axios": "^1.6.7"
+  }
+}
