@@ -32,7 +32,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
                     "type": "PAYMENT",
                     "data": {
                         "token": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
-                        "chain": 6,
+                        "chain": 5,
                         "receiver": "0x88942c2A454c56141592B0B7a42d78929fEB5F4b",
                         "amount": {
                             "amount": "100000",
