@@ -14,8 +14,8 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     try {
       console.log("req.body", req.body);
 
-      const fid = req.body.untrustedData.fid;
-      const username = await getAddrByFid(fid)
+      // const fid = req.body.untrustedData.fid;
+      // const username = await getAddrByFid(fid)
 
       const request = await axios({
         url: "https://staging-api.fetcch.xyz/v1/transaction-request",
@@ -46,18 +46,18 @@ export default async function (req: VercelRequest, res: VercelResponse) {
         }
       })
 
-      const postCast = await axios({
-        url: "https://api.neynar.com/v2/farcaster/cast",
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          "api_key": ""
-        },
-        data: {
-          "signer_uuid": "",
-          "text": `Instant checkout by Fetcch for ${username}, link - https://request.fetcch.xyz/request/${(await request.data).data.id}`
-        }
-      })
+      // const postCast = await axios({
+      //   url: "https://api.neynar.com/v2/farcaster/cast",
+      //   method: "POST",
+      //   headers: {
+      //     "content-type": "application/json",
+      //     "api_key": ""
+      //   },
+      //   data: {
+      //     "signer_uuid": "",
+      //     "text": `Instant checkout by Fetcch for @sk1122, link - https://request.fetcch.xyz/request/${(await request.data).data.id}`
+      //   }
+      // })
 
       res.status(200).setHeader("Content-Type", "text/html").send(`
       <!DOCTYPE html>
@@ -68,7 +68,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
           <meta property="og:title" content="Instant Checkout powered by Fetcch" />
           <meta
             property="og:image"
-            content="https://instant-checkout-farcaster.vercel.app/img/fetcch.png"
+            content="https://instant-checkout-farcaster.vercel.app/img/checkout.png"
           />
           <meta property="fc:frame" content="vNext" />
           <meta
